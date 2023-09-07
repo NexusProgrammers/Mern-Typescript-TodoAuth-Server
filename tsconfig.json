@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "custom.d.ts"],
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig-base.json"
+}

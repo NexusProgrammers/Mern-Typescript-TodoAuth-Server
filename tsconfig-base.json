@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
