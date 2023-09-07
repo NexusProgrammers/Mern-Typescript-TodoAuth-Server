@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Todo App",
   "main": "app.ts",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "nodemon src/app.ts",
     "start": "node src/app.ts"
