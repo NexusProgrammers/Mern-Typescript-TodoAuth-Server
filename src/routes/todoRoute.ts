@@ -1,10 +1,10 @@
 import { Router } from "express";
 import {
   addTodo,
-  completeTodo,
   deleteTodo,
   getTodo,
   getTodos,
+  toggleTodoComplete,
   updateTodo,
 } from "../controllers/todoController";
 import protect from "../middleware/authProtect";
@@ -23,6 +23,6 @@ todoRouter.put("/update/:id", updateTodo);
 
 todoRouter.delete("/delete/:id", deleteTodo);
 
-todoRouter.get("/complete/:id", completeTodo);
+todoRouter.get("/complete/:id", toggleTodoComplete);
 
 export default todoRouter;
