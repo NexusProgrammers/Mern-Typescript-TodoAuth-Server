@@ -185,3 +185,40 @@ export const deleteTodo = asyncHandler(async (req: Request, res: Response) => {
     todo,
   });
 });
+
+export const completeTodo = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = req?.user?.id;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      res.status(400).json({
+        success: false,
+        message: "User Not Found",
+      });
+      return;
+    }
+
+    const { id } = req.params;
+
+    const todo = await Todo.findOne({ _id: id, userId: user?._id });
+
+    if (!todo) {
+      res.status(401).json({
+        success: false,
+        message: "Todo Not Found",
+      });
+      return;
+    }
+
+    todo.isCompleted = true;
+
+    const updatedTodo = await todo.save();
+
+    res.status(200).json({
+      success: true,
+      todo: updatedTodo,
+    });
+  }
+);
